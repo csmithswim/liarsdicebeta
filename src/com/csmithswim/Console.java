@@ -1,5 +1,6 @@
 package com.csmithswim;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -28,6 +29,13 @@ public class Console {
         }
         return choices;
     }
+
+    static public void clearScreen(){
+        for (int j = 0; j < 50; j++) {
+            System.out.println("\n");
+        }
+    }
+
 }
 
 

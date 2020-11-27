@@ -35,21 +35,24 @@ public class Game {
         Cup player1 = new Cup(7);
         Cup player2 = new Cup(7);
 
-        Console.welcome();
-
         //Filling myHand object with random die
         player1.roll(rand);
         player2.roll(rand);
+
+        Console.welcome();
+
         //Displaying first hand
         System.out.println(player1);
-        System.out.println(player2);
-
         player1.roll(rand, Console.getChoices());
-        player2.roll(rand, Console.getChoices());
 
+        Console.clearScreen();
 
-        System.out.println(player1);
-        System.out.println(player2);
+//        System.out.println(player2);
+//        player2.roll(rand, Console.getChoices());
+//
+//
+//        System.out.println(player1);
+//        System.out.println(player2);
         play=false;
 
         //
