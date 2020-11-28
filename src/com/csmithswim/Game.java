@@ -45,18 +45,16 @@ public class Game {
         System.out.println(player1);
         player1.roll(rand, Console.getChoices());
 
+
+        //Clears screen before next player's turn
         Console.clearScreen();
 
-//        System.out.println(player2);
-//        player2.roll(rand, Console.getChoices());
-//
-//
-//        System.out.println(player1);
-//        System.out.println(player2);
+        System.out.println(player2);
+        player2.roll(rand, Console.getChoices());
+
+        Console.clearScreen();
+
         play=false;
-
-        //
-
 
         }
     }

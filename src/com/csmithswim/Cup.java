@@ -5,7 +5,12 @@ import java.util.List;
 import java.util.Random;
 
 public class Cup {
+    //Empty list to store first roll
     private List<Die> dice = new ArrayList<>();
+
+    //Empty list to store bet throughout game
+    private List<Die> bet = new ArrayList<>();
+
 
     //Hand constructor
     public Cup(int size) {
