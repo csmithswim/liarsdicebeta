@@ -36,7 +36,7 @@ public class Console {
         }
     }
 
-    static public void bet(){
+    static public List<Integer> getBet(){
         System.out.println("Enter the die you have, i.e. 222 to enter 3 2's.");
         String choice = scanner.nextLine();
         String splitChoice[] = choice.split("");
@@ -45,9 +45,7 @@ public class Console {
             int userInput = Integer.parseInt(i)-1;
             choices.add(userInput);
         }
-
-
-
+        return choices;
     }
 
 }

@@ -19,6 +19,10 @@ public class Cup {
         }
     }
 
+    public List<Die> getBet() {
+        return bet;
+    }
+
     //Rolling all die
     public void roll(Random rand) {
         for (Die die : dice) {

@@ -43,16 +43,20 @@ public class Game {
 
         //Displaying first hand
         System.out.println(player1);
-        player1.roll(rand, Console.getChoices());
+        player1.roll(rand, Console.getBet());
 
 
         //Clears screen before next player's turn
         Console.clearScreen();
 
         System.out.println(player2);
-        player2.roll(rand, Console.getChoices());
+        player2.roll(rand, Console.getBet());
 
-        Console.clearScreen();
+        System.out.println(player1.getBet());
+        System.out.println(player2.getBet());
+
+
+//        Console.clearScreen();
 
         play=false;
 
