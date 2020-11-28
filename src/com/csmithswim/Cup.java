@@ -9,7 +9,7 @@ public class Cup {
     private List<Die> dice = new ArrayList<>();
 
     //Empty list to store bet throughout game
-    private List<Die> bet = new ArrayList<>();
+    private List<Integer> bet = new ArrayList<>();
 
 
     //Hand constructor
@@ -19,7 +19,14 @@ public class Cup {
         }
     }
 
-    public List<Die> getBet() {
+    public List<Integer> setBet(List<Integer> choices) {
+        for (int choice : choices) {
+            bet.add(choice);
+        }
+        return bet;
+    }
+
+    public List<Integer> getBet(){
         return bet;
     }
 

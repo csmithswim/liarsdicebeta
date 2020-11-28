@@ -42,7 +42,7 @@ public class Console {
         String splitChoice[] = choice.split("");
         List<Integer> choices = new ArrayList<>();
         for (var i : splitChoice) {
-            int userInput = Integer.parseInt(i)-1;
+            int userInput = Integer.parseInt(i);
             choices.add(userInput);
         }
         return choices;
