@@ -26,14 +26,20 @@ public class Game {
 
     public void start() {
 
-        while (play) {
-
         //Instantiating random object
         Random rand = new Random();
 
         //Instantiating both players
         Cup player1 = new Cup(7);
         Cup player2 = new Cup(7);
+
+        while (play) {
+            player1.subtractDice();
+
+
+            if (player1.getDice().isEmpty() ||  player2.getDice().isEmpty()){
+            play=false;
+        }
 
         //Filling myHand object with random die
         player1.roll(rand);
@@ -42,14 +48,14 @@ public class Game {
         Console.welcome();
 
         //Displaying first hand
-        System.out.println(player1);
+//        System.out.println(player1);
         player1.setBet(Console.getBet());
 
         //Clears screen before next player's turn
         Console.clearScreen();
 
-        System.out.println(player2);
-        player2.setBet(Console.getBet());
+//        System.out.println(player2);
+            System.out.println(player1.getDice());
 
         /*
         When 'checkBet' method is called compare player bet with their hand
@@ -57,13 +63,12 @@ public class Game {
         If their hand does include that list, subtract one die from player 2
         */
 
-        player2.checkBet(player2.getBet(), player2.getDice(), 2);
+//        player2.checkBet(player2.getBet(), player2.getDice());
 
 
 
-//        Console.clearScreen();
 
-        play=false;
+
 
         }
     }

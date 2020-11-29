@@ -49,17 +49,6 @@ public class Console {
         return choices;
     }
 
-    static public List<Integer> callBet() {
-        System.out.println("Enter '1' to check bet of opposing player's bet. Otherwise enter '2' to set your own bet.");
-        int choice = scanner.nextInt();
-        List<Integer> bet = new ArrayList<>();
-        if (choice == 1) {
-            bet.add(1);
-            return bet;
-        } else if (choice == 2) {
-            return getBet();
-        } else return bet;
-    }
 }
 
 

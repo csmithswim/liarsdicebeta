@@ -34,12 +34,17 @@ public class Cup {
         return bet;
     }
 
-    public List<Die> checkBet(List<Integer> bet, List<Die> cup, int choice){
-        if (choice==1) {
+
+    public List<Die> subtractDice(){
+        dice.remove(0);
+
+    return dice;
+
+    }
+
+    public void checkBet(List<Integer> bet, List<Die> cup){
             System.out.println(bet);
             System.out.println(cup);
-            }
-        return cup;
     }
 
     //Rolling all die
