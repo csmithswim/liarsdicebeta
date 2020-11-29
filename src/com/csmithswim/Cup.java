@@ -26,8 +26,20 @@ public class Cup {
         return bet;
     }
 
+    public List<Die> getDice(){
+        return dice;
+    }
+
     public List<Integer> getBet(){
         return bet;
+    }
+
+    public List<Die> checkBet(List<Integer> bet, List<Die> cup, int choice){
+        if (choice==1) {
+            System.out.println(bet);
+            System.out.println(cup);
+            }
+        return cup;
     }
 
     //Rolling all die

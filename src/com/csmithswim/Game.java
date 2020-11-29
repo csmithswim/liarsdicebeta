@@ -45,15 +45,20 @@ public class Game {
         System.out.println(player1);
         player1.setBet(Console.getBet());
 
-
         //Clears screen before next player's turn
         Console.clearScreen();
 
         System.out.println(player2);
         player2.setBet(Console.getBet());
 
-        System.out.println(player1.getBet());
-        System.out.println(player2.getBet());
+        /*
+        When 'checkBet' method is called compare player bet with their hand
+        If their hand does not include their bet, subtract one die from player 1
+        If their hand does include that list, subtract one die from player 2
+        */
+
+        player2.checkBet(player2.getBet(), player2.getDice(), 2);
+
 
 
 //        Console.clearScreen();

@@ -36,11 +36,12 @@ public class Console {
         }
     }
 
-    static public List<Integer> getBet(){
-        System.out.println("Enter the die you have, i.e. 222 to enter 3 2's.");
+    static public List<Integer> getBet() {
+        System.out.println("Enter the die you are claiming you have, i.e. 222 to enter 3 2's. Enter 'bull' if you think your opponent is lying.");
+        List<Integer> choices = new ArrayList<>();
         String choice = scanner.nextLine();
         String splitChoice[] = choice.split("");
-        List<Integer> choices = new ArrayList<>();
+
         for (var i : splitChoice) {
             int userInput = Integer.parseInt(i);
             choices.add(userInput);
@@ -48,6 +49,17 @@ public class Console {
         return choices;
     }
 
+    static public List<Integer> callBet() {
+        System.out.println("Enter '1' to check bet of opposing player's bet. Otherwise enter '2' to set your own bet.");
+        int choice = scanner.nextInt();
+        List<Integer> bet = new ArrayList<>();
+        if (choice == 1) {
+            bet.add(1);
+            return bet;
+        } else if (choice == 2) {
+            return getBet();
+        } else return bet;
+    }
 }
 
 
