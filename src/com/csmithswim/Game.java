@@ -26,52 +26,44 @@ public class Game {
 
     public void start() {
 
-        //Instantiating random object
-        Random rand = new Random();
-
         //Instantiating both players
         Cup player1 = new Cup(7);
         Cup player2 = new Cup(7);
 
-        while (play) {
-            player1.subtractDice();
-
-
-            if (player1.getDice().isEmpty() ||  player2.getDice().isEmpty()){
-            play=false;
-        }
-
-        //Filling myHand object with random die
-        player1.roll(rand);
-        player2.roll(rand);
-
+        //Welcome message
         Console.welcome();
 
-        //Displaying first hand
-//        System.out.println(player1);
-        player1.setBet(Console.getBet());
+            //Instantiating random object
+            Random rand = new Random();
 
-        //Clears screen before next player's turn
-        Console.clearScreen();
+            //Filling myHand object with random die
+            player1.roll(rand);
+            player2.roll(rand);
 
-//        System.out.println(player2);
-            System.out.println(player1.getDice());
+            //Displaying first hand
+            System.out.println(player1);
+            player1.setBet(Console.getBet());
 
-        /*
+            //Clears screen before next player's turn
+            Console.clearScreen();
+
+            System.out.println(player2);
+            player2.setBet(Console.getBet());
+
+            player2.checkBet(player2.getBet(), player2.getDice());
+        }
+    }
+
+
+//
+//        while (play) {
+//        if (player1.getDice().isEmpty() || player2.getDice().isEmpty()) {
+//        play = false;
+//        }
+
+    /*
         When 'checkBet' method is called compare player bet with their hand
         If their hand does not include their bet, subtract one die from player 1
         If their hand does include that list, subtract one die from player 2
         */
-
-//        player2.checkBet(player2.getBet(), player2.getDice());
-
-
-
-
-
-
-        }
-    }
-}
-
 

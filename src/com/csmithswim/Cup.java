@@ -11,6 +11,9 @@ public class Cup {
     //Empty list to store bet throughout game
     private List<Integer> bet = new ArrayList<>();
 
+    //Empty integer list to store dice
+    List<Integer> dieToInteger = new ArrayList<>();
+
 
     //Hand constructor
     public Cup(int size) {
@@ -42,9 +45,19 @@ public class Cup {
 
     }
 
-    public void checkBet(List<Integer> bet, List<Die> cup){
+    public void checkBet(List<Integer> bet, List<Die> dice){
+        for (var die : dice){
+            dieToInteger.add(die.getValue());
+        }
+
+//        if (dieToInteger.containsAll(bet)){
+//            subtractDice();
+//        }
+
+        System.out.println(dieToInteger.containsAll(bet));
+        System.out.println(dieToInteger);
             System.out.println(bet);
-            System.out.println(cup);
+            System.out.println(dice);
     }
 
     //Rolling all die
