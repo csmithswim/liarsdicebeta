@@ -1,8 +1,6 @@
 package com.csmithswim;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Cup {
     //Empty list to store first roll
@@ -12,7 +10,6 @@ public class Cup {
     private List<Integer> bet = new ArrayList<>();
 
     //Empty integer list to store dice
-    List<Integer> dieToInteger = new ArrayList<>();
 
 
     //Hand constructor
@@ -46,18 +43,45 @@ public class Cup {
     }
 
     public void checkBet(List<Integer> bet, List<Die> dice){
+        //Converts Dice list to a list of integers
+        List<Integer> diceToInteger = new ArrayList<>();
         for (var die : dice){
-            dieToInteger.add(die.getValue());
+            diceToInteger.add(die.getValue());
         }
+
+        //Sorting the list of integers
+        Collections.sort(diceToInteger);
+
+        int counter = 0;
+        for (var die : diceToInteger){
+            for (var i : bet){
+                if (diceToInteger.indexOf(i) == -1){
+                    counter++;
+                    break;
+                }
+            }
+        }
+
+        if (counter != 0){
+            subtractDice();
+        }
+
+        System.out.println(counter);
+        System.out.println(diceToInteger);
+        System.out.println(bet);
+        System.out.println(dice);
+
+
 
 //        if (dieToInteger.containsAll(bet)){
 //            subtractDice();
 //        }
 
-        System.out.println(dieToInteger.containsAll(bet));
-        System.out.println(dieToInteger);
-            System.out.println(bet);
-            System.out.println(dice);
+        //just checks one at a time, sorting the dice
+        //Using hash map
+
+
+
     }
 
     //Rolling all die
