@@ -30,6 +30,18 @@ public class Console {
         return choices;
     }
 
+    static public String displayCup(){
+        System.out.println("Enter 'show' to display cup.");
+        String choice = scanner.nextLine();
+        return choice;
+    }
+
+    static public String getComparison(){
+        System.out.println("Enter 'bull' to compare opponent's claim and opponent's cup");
+        String choice = scanner.nextLine();
+        return choice;
+    }
+
     static public void clearScreen(){
         for (int j = 0; j < 50; j++) {
             System.out.println("\n");
@@ -37,7 +49,7 @@ public class Console {
     }
 
     static public List<Integer> getBet() {
-        System.out.println("Enter the die you are claiming you have, i.e. 222 to enter 3 2's. Enter 'bull' if you think your opponent is lying.");
+        System.out.println("Enter the die you are claiming you have, i.e. 222 to enter 3 2's. Otherwise enter 9 to call your opponent's hand.");
         List<Integer> choices = new ArrayList<>();
         String choice = scanner.nextLine();
         String splitChoice[] = choice.split("");

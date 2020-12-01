@@ -2,21 +2,6 @@ package com.csmithswim;
 import java.util.Random;
 import java.util.Scanner;
 
-/*Each player must increase the quantity of the same face or any quantity of a different face
-
-player 1 rolls their dice and its displayed to console
-player 1 chooses which set, i.e. 3 2's, this can be input as integers
-
-console is cleared
-
-player 2 rolls their dice and its displayed to console
-player 2 decides to call their opponent's bluff or to raise their die, i.e. 4 2's or 2 3's.
-if player 2 calls their opponent's bluff, use a method that compares the scanner input of the player with the player's actual cup
-
-* Play ends when a player loses all their dice
-* */
-
-//refactor turns into one turn, try to get final turn in the low.
 public class Game {
     boolean play;
 
@@ -33,33 +18,50 @@ public class Game {
         //Welcome message
         Console.welcome();
 
-            //Instantiating random object
-            Random rand = new Random();
+        while (play) {
+            if (player1.getDice().isEmpty() || player2.getDice().isEmpty()) {play = false;}
 
-            //Filling myHand object with random die
-            player1.roll(rand);
-            player2.roll(rand);
+                //Instantiating random object
+                Random rand = new Random();
 
-            //Displaying first hand
-            System.out.println(player1);
-            player1.setBet(Console.getBet());
+                //Filling myHand object with random die
+                player1.roll(rand);
+                player2.roll(rand);
 
-            //Clears screen before next player's turn
-            Console.clearScreen();
+                //Displaying first hand
+                player1.displayCup(Console.displayCup());
+                player1.setBet(Console.getBet());
+                player1.checkBet(player2.getBet(), player2.getDice(), Console.getComparison());
 
-            System.out.println(player2);
-            player2.setBet(Console.getBet());
+                //Clears screen before next player's turn
+//                Console.clearScreen();
 
-            player2.checkBet(player2.getBet(), player2.getDice());
+                player2.displayCup(Console.displayCup());
+                player2.setBet(Console.getBet());
+                player2.checkBet(player1.getBet(), player1.getDice(), Console.getComparison());
         }
     }
+}
 
 
-//
-//        while (play) {
-//        if (player1.getDice().isEmpty() || player2.getDice().isEmpty()) {
-//        play = false;
-//        }
+    /*Each player must increase the quantity of the same face or any quantity of a different face
+
+player 1 rolls their dice and its displayed to console
+player 1 chooses which set, i.e. 3 2's, this can be input as integers
+
+console is cleared
+
+player 2 rolls their dice and its displayed to console
+player 2 decides to call their opponent's bluff or to raise their die, i.e. 4 2's or 2 3's.
+if player 2 calls their opponent's bluff, use a method that compares the scanner input of the player with the player's actual cup
+
+* Play ends when a player loses all their dice
+* */
+
+//refactor turns into one turn, try to get final turn in the low.
+
+
+
 
     /*
         When 'checkBet' method is called compare player bet with their hand

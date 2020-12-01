@@ -20,6 +20,9 @@ public class Cup {
     }
 
     public List<Integer> setBet(List<Integer> choices) {
+        if(choices.get(0).equals(9)){
+            System.out.println(" ");
+        }
         for (int choice : choices) {
             bet.add(choice);
         }
@@ -42,46 +45,36 @@ public class Cup {
 
     }
 
-    public void checkBet(List<Integer> bet, List<Die> dice){
-        //Converts Dice list to a list of integers
-        List<Integer> diceToInteger = new ArrayList<>();
-        for (var die : dice){
-            diceToInteger.add(die.getValue());
+    public void checkBet(List<Integer> bet, List<Die> dice, String choice){
+        if (choice.equalsIgnoreCase("pass")){
+            System.out.println(" ");
         }
-
-        //Sorting the list of integers
-        Collections.sort(diceToInteger);
-
-        int counter = 0;
-        for (var die : diceToInteger){
-            for (var i : bet){
-                if (diceToInteger.indexOf(i) == -1){
-                    counter++;
-                    break;
+        else if (choice.equalsIgnoreCase("bull")) {
+            //Converts Dice list to a list of integers
+            List<Integer> diceToInteger = new ArrayList<>();
+            for (var die : dice) {
+                diceToInteger.add(die.getValue());
+            }
+            //Sorting the list of integers
+            Collections.sort(diceToInteger);
+            int counter = 0;
+            for (var die : diceToInteger) {
+                for (var i : bet) {
+                    if (diceToInteger.indexOf(i) == -1) {
+                        counter++;
+                    }
                 }
             }
+
+            if (counter != 0) {
+                subtractDice();
+            }
+
+            System.out.println(counter);
+            System.out.println(diceToInteger);
+            System.out.println(bet);
+            System.out.println(dice);
         }
-
-        if (counter != 0){
-            subtractDice();
-        }
-
-        System.out.println(counter);
-        System.out.println(diceToInteger);
-        System.out.println(bet);
-        System.out.println(dice);
-
-
-
-//        if (dieToInteger.containsAll(bet)){
-//            subtractDice();
-//        }
-
-        //just checks one at a time, sorting the dice
-        //Using hash map
-
-
-
     }
 
     //Rolling all die
@@ -100,6 +93,16 @@ public class Cup {
     public void roll(Random rand, List<Integer> choices) {
         for (int choice : choices) {
             roll(rand, choice);
+        }
+    }
+
+    public void displayCup(String choice){
+        if (choice.equalsIgnoreCase("show")){
+            String displayedDiced = "";
+            for (var die : dice) {
+                displayedDiced += die + " ";
+            }
+            System.out.println(displayedDiced.trim());
         }
     }
 
