@@ -38,13 +38,6 @@ public class Cup {
     }
 
 
-    public List<Die> subtractDice(){
-        dice.remove(0);
-
-    return dice;
-
-    }
-
     public void checkBet(List<Integer> bet, List<Die> dice, String choice){
         if (choice.equalsIgnoreCase("pass")){
             System.out.println(" ");
@@ -57,21 +50,23 @@ public class Cup {
             }
             //Sorting the list of integers
             Collections.sort(diceToInteger);
+            Collections.sort(bet);
             int counter = 0;
             for (var die : diceToInteger) {
                 for (var i : bet) {
-                    if (diceToInteger.indexOf(i) == -1) {
+                    if (diceToInteger.indexOf(i) != -1) {
                         counter++;
                     }
                 }
             }
 
-            if (counter != 0) {
-                subtractDice();
+            if (counter != bet.size()) {
+                System.out.println("test");
+                dice.remove(0);
             }
 
-            System.out.println(counter);
-            System.out.println(diceToInteger);
+            System.out.println("counter: "+ counter);
+//            System.out.println(diceToInteger);
             System.out.println(bet);
             System.out.println(dice);
         }

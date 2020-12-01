@@ -19,7 +19,6 @@ public class Game {
         Console.welcome();
 
         while (play) {
-            if (player1.getDice().isEmpty() || player2.getDice().isEmpty()) {play = false;}
 
                 //Instantiating random object
                 Random rand = new Random();
@@ -34,11 +33,13 @@ public class Game {
                 player1.checkBet(player2.getBet(), player2.getDice(), Console.getComparison());
 
                 //Clears screen before next player's turn
-//                Console.clearScreen();
+                Console.clearScreen();
 
                 player2.displayCup(Console.displayCup());
                 player2.setBet(Console.getBet());
                 player2.checkBet(player1.getBet(), player1.getDice(), Console.getComparison());
+
+            if (player1.getDice().isEmpty() || player2.getDice().isEmpty()) {play = false;}
         }
     }
 }
@@ -59,9 +60,6 @@ if player 2 calls their opponent's bluff, use a method that compares the scanner
 * */
 
 //refactor turns into one turn, try to get final turn in the low.
-
-
-
 
     /*
         When 'checkBet' method is called compare player bet with their hand
