@@ -37,19 +37,19 @@ public class Console {
     }
 
     static public String getComparison(){
-        System.out.println("Enter 'bull' to compare opponent's claim and opponent's cup");
+        System.out.println("Enter 'bull' to compare opponent's claim and opponent's cup, if not just hit enter.");
         String choice = scanner.nextLine();
         return choice;
     }
 
     static public void clearScreen(){
-        for (int j = 0; j < 50; j++) {
+        for (int j = 0; j < 25; j++) {
             System.out.println("\n");
         }
     }
 
     static public List<Integer> getBet() {
-        System.out.println("Enter the die you are claiming you have, i.e. 222 to enter 3 2's. Otherwise enter 9 to call your opponent's hand.");
+        System.out.println("Enter the die you are claiming you have, i.e. 222 to enter 3 2's. If you are not claiming any and want to call your opponent's bluff enter 9.");
         List<Integer> choices = new ArrayList<>();
         String choice = scanner.nextLine();
         String splitChoice[] = choice.split("");

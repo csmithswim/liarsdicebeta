@@ -64,11 +64,6 @@ public class Cup {
                 System.out.println("test");
                 dice.remove(0);
             }
-
-            System.out.println("counter: "+ counter);
-//            System.out.println(diceToInteger);
-            System.out.println(bet);
-            System.out.println(dice);
         }
     }
 

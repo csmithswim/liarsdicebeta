@@ -15,11 +15,14 @@ public class Game {
         Cup player1 = new Cup(7);
         Cup player2 = new Cup(7);
 
+        //Round field to keep track of rounds
+        int round = 1;
+
         //Welcome message
         Console.welcome();
 
         while (play) {
-
+            System.out.println("Round "+ round);
                 //Instantiating random object
                 Random rand = new Random();
 
@@ -28,42 +31,26 @@ public class Game {
                 player2.roll(rand);
 
                 //Displaying first hand
+                System.out.println("\nPlayer 1's turn. Player 2 please look away from screen.");
                 player1.displayCup(Console.displayCup());
+                System.out.println("Number of dice in Player 1's cup: " + player1.getDice().size() + "\n");
                 player1.setBet(Console.getBet());
                 player1.checkBet(player2.getBet(), player2.getDice(), Console.getComparison());
+                    if (player1.getDice().isEmpty() || player2.getDice().isEmpty()) {play = false;}
+
 
                 //Clears screen before next player's turn
                 Console.clearScreen();
 
+                System.out.println("Player 2's turn. Player 1 please look away from screen.");
                 player2.displayCup(Console.displayCup());
+                System.out.println("Number of dice in Player 2's cup: " + player2.getDice().size() + "\n");
                 player2.setBet(Console.getBet());
                 player2.checkBet(player1.getBet(), player1.getDice(), Console.getComparison());
+                    if (player1.getDice().isEmpty() || player2.getDice().isEmpty()) {play = false;}
 
-            if (player1.getDice().isEmpty() || player2.getDice().isEmpty()) {play = false;}
+            round++;
         }
     }
 }
-
-
-    /*Each player must increase the quantity of the same face or any quantity of a different face
-
-player 1 rolls their dice and its displayed to console
-player 1 chooses which set, i.e. 3 2's, this can be input as integers
-
-console is cleared
-
-player 2 rolls their dice and its displayed to console
-player 2 decides to call their opponent's bluff or to raise their die, i.e. 4 2's or 2 3's.
-if player 2 calls their opponent's bluff, use a method that compares the scanner input of the player with the player's actual cup
-
-* Play ends when a player loses all their dice
-* */
-
-//refactor turns into one turn, try to get final turn in the low.
-
-    /*
-        When 'checkBet' method is called compare player bet with their hand
-        If their hand does not include their bet, subtract one die from player 1
-        If their hand does include that list, subtract one die from player 2
-        */
 
