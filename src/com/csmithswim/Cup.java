@@ -19,7 +19,7 @@ public class Cup {
         }
     }
 
-    public List<Integer> setBet(List<Integer> choices) {
+    public List<Integer> claim(List<Integer> choices) {
         if(choices.get(0).equals(9)){
             System.out.println(" ");
         }
@@ -38,7 +38,7 @@ public class Cup {
     }
 
 
-    public void checkBet(List<Integer> bet, List<Die> dice, String choice){
+    public void checkClaim(List<Integer> bet, List<Die> dice, String choice){
         if (choice.equalsIgnoreCase("pass")){
             System.out.println(" ");
         }
