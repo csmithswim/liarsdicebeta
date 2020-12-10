@@ -48,7 +48,7 @@ public class Console {
         }
     }
 
-    static public List<Integer> getBet() {
+    static public List<Integer> askClaim() {
         System.out.println("Enter the die you are claiming you have, i.e. 222 to enter 3 2's. If you are not claiming any and want to call your opponent's bluff enter 9.");
         List<Integer> choices = new ArrayList<>();
         String choice = scanner.nextLine();

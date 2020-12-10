@@ -7,7 +7,7 @@ public class Cup {
     private List<Die> dice = new ArrayList<>();
 
     //Empty list to store bet throughout game
-    private List<Integer> bet = new ArrayList<>();
+    private List<Integer> claim = new ArrayList<>();
 
     //Empty integer list to store dice
 
@@ -24,17 +24,17 @@ public class Cup {
             System.out.println(" ");
         }
         for (int choice : choices) {
-            bet.add(choice);
+            claim.add(choice);
         }
-        return bet;
+        return claim;
     }
 
     public List<Die> getDice(){
         return dice;
     }
 
-    public List<Integer> getBet(){
-        return bet;
+    public List<Integer> getClaim(){
+        return claim;
     }
 
 
